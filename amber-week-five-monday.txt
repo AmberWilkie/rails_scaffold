@@ -1,0 +1,3 @@
+Github: https://github.com/AmberWilkie/rails_scaffold/tree/sample-feature
+
+Heroku: http://amber-ca-rails-demo.herokuapp.com/
