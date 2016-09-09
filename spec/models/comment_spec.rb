@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
+  before do
+    @factory_article = FactoryGirl.create(:article)
+  end
+
   describe 'DB table' do
     it { is_expected.to have_db_column :id }
     it { is_expected.to have_db_column :body }
@@ -8,16 +12,12 @@ RSpec.describe Comment, type: :model do
 
   describe 'Validations' do
     it { is_expected.to validate_presence_of :body }
-    it { is_expected.to validate_presence_of :article }
+    it { is_expected.to validate_presence_of :article_id }
   end
 
   describe 'Factory' do
     it 'should have valid Factory' do
-      expect(FactoryGirl.create(:comment)).to be_valid
+      expect(FactoryGirl.create(:comment, article_id: @factory_article.id)).to be_valid
     end
-  end
-
-  it 'should be linked to an article' do
-    expect(Comment.first.article).not_to be nil
   end
 end
