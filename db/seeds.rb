@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Article.create(title: "Here's a title", content: "Here's some content")
+Article.create(title: "Here's another title", content: "More content. Like, tons.")
+Article.create(title: "Here's a third title", content: "Here's additional content.")
+Article.create(title: "Here's yet another title", content: "So much content. Fuck.")
