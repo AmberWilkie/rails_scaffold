@@ -1,2 +1,8 @@
 <h1><%= @article.title %></h1>
 <p><%= @article.content %></p>
+<div class='comment'>
+<% form_for @comment do |f| %>
+<% f.text_area :body, size: "60x12"%>
+<% f.submit "Comment" %>
+<% end %>
+</div>
