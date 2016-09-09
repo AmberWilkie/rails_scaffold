@@ -13,6 +13,7 @@ RSpec.describe Comment, type: :model do
   describe 'Validations' do
     it { is_expected.to validate_presence_of :body }
     it { is_expected.to validate_presence_of :article_id }
+    it { should belong_to :article}
   end
 
   describe 'Factory' do

@@ -12,7 +12,7 @@ class TryToFixThisMess < ActiveRecord::Migration[5.0]
 
     create_table :comments do |t|
       t.text :body
-      t.belongs_to :article
+      t.references :article, foreign_key: true
 
       t.timestamps
     end
