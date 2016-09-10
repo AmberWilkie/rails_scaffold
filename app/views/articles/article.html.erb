@@ -7,3 +7,11 @@
 <%= f.submit "Comment" %>
 <% end %>
 </div>
+<div class='display_comments'>
+  <%= @article.comments.each do |hash| %>
+    <p><%= hash.body unless hash == @article.comments.last %></p>
+  <% end %><p>
+That frickin' weird text is *outside* the Ps! Where is it coming from!?
+</div>
+
+Here's some text outside the div.
