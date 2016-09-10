@@ -26,9 +26,9 @@ Scenario: Comment with my email address
 
 Scenario: Commenting with a junk email address
   Given I am on the "Learn Rails 5" page
-  When I fill in the textbox with "Another horrible internet troll"
+  When I fill in the textbox with "Super comment of love and peace"
   And I fill in "Email" with "amberamber.com"
   And click the "Comment" button
   Then I should see "You probably entered a crap email"
-  And I should see "Another horrible internet troll"
-  And I should not see "says:"
+  And I should see "Super comment"
+  And I should not see "amberamber.com says:"
