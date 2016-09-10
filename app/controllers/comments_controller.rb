@@ -1,5 +1,9 @@
 class CommentsController < ApplicationController
   def create
+    if params[:article_id] = nil
+      flash[:notice] = "Fuck, that article is gone, man"
+      render 'articles/show'
+    end
     @article = Article.find(params[:article_id])
     @comment = @article.comments.new(comment_params)
     if @comment.save
