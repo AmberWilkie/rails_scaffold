@@ -19,8 +19,8 @@ Then(/^I should see the "([^"]*)" button$/) do |text|
   expect(page).to have_button text
 end
 
-When(/^click the "([^"]*)" button$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
+When(/^click the "([^"]*)" button$/) do |button|
+  click_button button
 end
 
 Then(/^I should be on the "([^"]*)" page$/) do |arg1|
