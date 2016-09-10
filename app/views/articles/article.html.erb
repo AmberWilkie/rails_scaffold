@@ -1,8 +1,8 @@
 <h1><%= @article.title %></h1>
 <p><%= @article.content %></p>
-<div class='comment'>
-<% form_for [@article, @article.comments.build] do |f| %>
-<% f.text_area :body, size: "60x12"%>
-<% f.submit "Comment" %>
+<p>Just more changes</p>
+<%= form_for [@article, @article.comments.build] do |f| %>
+<%= f.text_area :body, size: "60x12"%>
+<p>Saying something</p>
+<%= f.submit "Comment" %>
 <% end %>
-</div>

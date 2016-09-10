@@ -15,11 +15,11 @@ Given(/^I am on the "([^"]*)" page$/) do |page|
   visit article_path(article[:id])
 end
 
-Then(/^I should see the "([^"]*)" link$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
+Then(/^I should see the "([^"]*)" button$/) do |text|
+  expect(page).to have_button text
 end
 
-When(/^click the "([^"]*)" link$/) do |arg1|
+When(/^click the "([^"]*)" button$/) do |arg1|
   pending # Write code here that turns the phrase above into concrete actions
 end
 

@@ -10,8 +10,8 @@ Background: Here's some fake data in a factory
 
 Scenario: Making a comment
   Given I am on the "Learn Rails 5" page
-  Then I should see the "Comment" link
+  Then I should see the "Comment" button
   When I fill in the textbox with "Here's a horrible internet comment."
-  And click the "Comment" link
+  And click the "Comment" button
   Then I should be on the "Learn Rails 5" page
   And I should see "Here's a horrible internet comment."
