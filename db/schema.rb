@@ -30,4 +30,5 @@ ActiveRecord::Schema.define(version: 20160909161253) do
     t.index ["article_id"], name: "index_comments_on_article_id", using: :btree
   end
 
+  add_foreign_key "comments", "articles"
 end
