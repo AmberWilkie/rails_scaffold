@@ -8,7 +8,7 @@ Background: Here's some fake data in a factory
   | A breaking news item | Some really breaking action        |
   | Learn Rails 5        | Build awesome rails applications   |
 
-Scenario: Making a comment
+Scenario: Making a comment, no email
   Given I am on the "Learn Rails 5" page
   Then I should see the "Comment" button
   When I fill in the textbox with "Here's a horrible internet comment."
@@ -23,3 +23,10 @@ Scenario: Comment with my email address
   And click the "Comment" button
   Then I should be on the "Learn Rails 5" page
   And I should see "amber@amber.com"
+
+Scenario: Commenting with a junk email address
+  Given I am on the "Learn Rails 5" page
+  When I fill in the textbox with "Another horrible internet troll"
+  And I fill in "Email" with "amberamber.com"
+  And click the "Comment" button
+  Then I should see "Email must be valid"
