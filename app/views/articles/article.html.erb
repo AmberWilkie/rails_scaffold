@@ -8,6 +8,7 @@
   <% if @body == nil %>
     <%= f.text_area :body, size: "60x12"%>
   <% else %>
+  <% binding.pry %>
     <%= f.text_area :body, size: "60x12", value: @body %>
   <% end %>
 <%= f.submit "Comment" %>

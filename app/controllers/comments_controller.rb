@@ -7,8 +7,7 @@ class CommentsController < ApplicationController
     else
       flash[:notice] = "You probably entered a crap email"
       @body = params[:comment][:body]
-      render 'articles/article'
-      # redirect_to article_path(@article)
+      redirect_to article_path(@article, @body)
     end
   end
 
