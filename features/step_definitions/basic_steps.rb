@@ -23,6 +23,6 @@ When(/^click the "([^"]*)" button$/) do |button|
   click_button button
 end
 
-Then(/^I should be on the "([^"]*)" page$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
+Then(/^I should be on the "([^"]*)" page$/) do |text|
+  expect(page).to have_content text
 end
