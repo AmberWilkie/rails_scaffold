@@ -39,4 +39,4 @@ Scenario: I try to comment on an article that doesn't exist
   When I fill in the textbox with "Super comment of love and peace"
   And I fill in "Email" with "amber@amber.com"
   And click the "Comment" button
-  Then I should see "sorry, article not found"
+  Then I should see "Fuck, that article is gone"

@@ -1,18 +1,20 @@
 class CommentsController < ApplicationController
   def create
-    if params[:article_id] = nil
+    if params[:comment][:article_id] == nil
       flash[:notice] = "Fuck, that article is gone, man"
-      render 'articles/show'
-    end
-    @article = Article.find(params[:article_id])
-    @comment = @article.comments.new(comment_params)
-    if @comment.save
-      redirect_to article_path(@article)
+      redirect_to root_path
     else
-      @article.reload
-      flash[:notice] = "You probably entered a crap email"
-      render 'articles/show'
+      @article = Article.find(params[:article_id])
+      @comment = @article.comments.new(comment_params)
+      if @comment.save
+        redirect_to article_path(@article)
+      else
+        @article.reload
+        flash[:notice] = "You probably entered a crap email"
+        render 'articles/show'
+      end
     end
+
   end
 
   private
