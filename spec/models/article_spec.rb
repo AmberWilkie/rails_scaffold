@@ -18,4 +18,18 @@ RSpec.describe Article, type: :model do
       expect(FactoryGirl.create(:article)).to be_valid
     end
   end
+
+  describe 'Sad path' do
+
+    before do
+      FactoryGirl.create(:article, title: "Title One")
+      FactoryGirl.create(:article, title: "Title Two")
+      FactoryGirl.create(:comment, article_id: Article.find_by(title: "Title One").id)
+    end
+    it 'should have no comments if article is destroyed' do
+      expect(Comment.all).not_to eq []
+      Article.destroy(Article.find_by(title: "Title One").id)
+      expect(Comment.all).to eq []
+    end
+  end
 end
