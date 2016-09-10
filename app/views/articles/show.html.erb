@@ -3,7 +3,7 @@
 <p><%= @article.content %></p>
 <hr width="600px">
 <div class='comment'>
-<%= form_for [@article, @comment] do |f| %>
+<%= form_for [@article, @comment], method: :post do |f| %>
   <%= label :email, 'Email (Optional)' %><br>
   <%= f.text_field :email, value: @comment.email %><br>
   <%= f.text_area :body, size: "60x12", value: @comment.body %>

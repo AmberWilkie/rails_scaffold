@@ -5,9 +5,9 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to article_path(@article)
     else
+      @article.reload
       flash[:notice] = "You probably entered a crap email"
-      # @body = params[:comment][:body]
-      redirect_to article_path(@article)
+      render 'articles/show'
     end
   end
 
