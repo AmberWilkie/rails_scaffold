@@ -1,0 +1,43 @@
+<h1><%= @article.title %></h1>
+<p><%= @article.content %></p>
+<hr width="600px">
+<div class='comment'>
+<%= form_for [@article, @comment] do |f| %>
+<%= label :email, 'Email (Optional)' %><br>
+<%= f.text_field :email %><br>
+  <% if @comment.body == nil %>
+    <%= f.text_area :body, size: "60x12"%>
+  <% else %>
+    <%= f.text_area :body, size: "60x12", value: @comment.body %>
+  <% end %>
+<%= f.submit "Comment" %>
+<% end %>
+</div>
+<div class='display_comments'>
+  <% @article.comments.each do |comment| %>
+    <% if comment.email != nil %>
+      <%= comment.email%> says:<br>
+      <% end %>
+    <p><%= comment.body %></p>
+  <% end %><p>
+</div>
+
+<!-- <h1><%= @article.title %></h1>
+<p><%= @article.content %></p>
+<hr width="600px">
+<div class='comment'>
+<%- form_for [@article, @article.comments.build] do |f| %>
+  <%= label :email, 'Email (Optional)' %><br>
+  <%= f.text_field :email, value: @comment.email %><br>
+  <%= f.text_area :body, size: "60x12", value: @comment.body %>
+  <%= f.submit "Comment" %>
+<% end %>
+</div>
+<div class='display_comments'>
+  <% @article.comments.each do |comment| %>
+    <% if comment.email != nil %>
+      <%= comment.email%> says:<br>
+      <% end %>
+    <p><%= comment.body %></p>
+  <% end %><p>
+</div> -->
