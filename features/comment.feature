@@ -30,3 +30,5 @@ Scenario: Commenting with a junk email address
   And I fill in "Email" with "amberamber.com"
   And click the "Comment" button
   Then I should see "You probably entered a crap email"
+  And I should see "Another horrible internet troll"
+  And I should not see "says:"

@@ -30,3 +30,7 @@ end
 When(/^I fill in "([^"]*)" with "([^"]*)"$/) do |element, text|
   fill_in "comment_email", with: text
 end
+
+Then(/^I should not see "([^"]*)"$/) do |text|
+  expect(page).not_to have_content text
+end

@@ -29,6 +29,18 @@ RSpec.describe Comment, type: :model do
 
   describe 'Additional validations' do
 
+    it 'should reject emails with no @' do
+      expect(FactoryGirl.build(:comment, email: "amberamber.com", article_id: @factory_article.id, body: "body")).not_to be_valid
+    end
+
+    it 'should reject emails with no .' do
+      expect(FactoryGirl.build(:comment, email: "amber@ambercom", article_id: @factory_article.id, body: "body")).not_to be_valid
+    end
+
+    it 'should reject emails with a space' do
+      expect(FactoryGirl.build(:comment, email: "amber @amber.com", article_id: @factory_article.id, body: "body")).not_to be_valid
+    end
+
     it 'should reject empty comments' do
       expect(FactoryGirl.build(:comment, article_id: @factory_article.id, body: "")).not_to be_valid
     end

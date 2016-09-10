@@ -2,11 +2,13 @@ class CommentsController < ApplicationController
   def create
     @article = Article.find(params[:article_id])
     @comment = @article.comments.build(comment_params)
-    if @article.save
+    if @comment.save
       redirect_to article_path(@article)
     else
       flash[:notice] = "You probably entered a crap email"
-      redirect_to article_path(@article)
+      @body = params[:comment][:body]
+      render 'articles/article'
+      # redirect_to article_path(@article)
     end
   end
 
