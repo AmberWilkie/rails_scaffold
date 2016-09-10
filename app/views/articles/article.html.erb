@@ -11,6 +11,7 @@
 </div>
 <div class='display_comments'>
   <% @article.comments.each do |hash| %>
-    <p><%= hash.body unless hash == @article.comments.last %></p>
+    <%= hash.email%> says:<br>
+    <p><%= hash.body %></p>
   <% end %><p>
 </div>
