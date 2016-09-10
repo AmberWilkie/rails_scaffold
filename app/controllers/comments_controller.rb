@@ -7,7 +7,6 @@ class CommentsController < ApplicationController
 
   private
     def comment_params
-      binding.pry
       params.require(:comment).permit(:body, :email)
     end
 end
