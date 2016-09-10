@@ -28,6 +28,8 @@ RSpec.describe Comment, type: :model do
   end
 
   describe 'Email validation' do
-    it 'should allow '
+    it 'should reject emails with no @ sign' do
+      expect(FactoryGirl.create(:comment, article_id: @factory_article.id, email: 'jennyrandom.com')).not_to be_valid
+    end
   end
 end
