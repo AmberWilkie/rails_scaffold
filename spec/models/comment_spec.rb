@@ -31,5 +31,14 @@ RSpec.describe Comment, type: :model do
     it 'should reject emails with no @ sign' do
       expect(FactoryGirl.build(:comment, article_id: @factory_article.id, email: 'jennyrandom.com')).not_to be_valid
     end
+
+    it 'should reject emails with no . sign' do
+      expect(FactoryGirl.build(:comment, article_id: @factory_article.id, email: 'jenny@randomcom')).not_to be_valid
+    end
+
+    it 'should reject emails with a space' do
+      expect(FactoryGirl.build(:comment, article_id: @factory_article.id, email: 'jenny @random.com')).not_to be_valid
+    end
+
   end
 end
