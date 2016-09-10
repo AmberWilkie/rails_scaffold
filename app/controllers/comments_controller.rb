@@ -20,7 +20,7 @@ class CommentsController < ApplicationController
 
     def email_problems
       @article.reload
-      flash[:notice] = "You probably entered a crap email"
+      flash[:notice] = @comment.errors.full_messages.first
       render 'articles/show'
     end
 end

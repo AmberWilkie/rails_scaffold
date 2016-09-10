@@ -29,6 +29,6 @@ Scenario: Commenting with a junk email address
   When I fill in the textbox with "Super comment of love and peace"
   And I fill in "Email" with "amberamber.com"
   And click the "Comment" button
-  Then I should see "You probably entered a crap email"
+  Then I should see "Email is invalid"
   And I should see "Super comment"
   And I should not see "amberamber.com says:"
