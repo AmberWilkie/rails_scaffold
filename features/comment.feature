@@ -29,4 +29,4 @@ Scenario: Commenting with a junk email address
   When I fill in the textbox with "Another horrible internet troll"
   And I fill in "Email" with "amberamber.com"
   And click the "Comment" button
-  Then I should see "Email must be valid"
+  Then I should see "You probably entered a crap email"
