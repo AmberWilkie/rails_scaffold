@@ -32,3 +32,10 @@ Scenario: Commenting with a junk email address
   Then I should see "Email is invalid"
   And I should see "Super comment"
   And I should not see "amberamber.com says:"
+
+Scenario: Trying to comment with no body text
+  Given I am on the "Learn Rails 5" page
+  When I fill in the textbox with ""
+  And I fill in "Email" with "amber@amber.com"
+  And click the "Comment" button
+  Then I should see "Body can't be blank"
