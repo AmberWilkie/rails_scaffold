@@ -29,8 +29,12 @@ RSpec.describe Comment, type: :model do
 
   describe 'Additional validations' do
 
-    it 'should reject email comments' do
+    it 'should reject empty comments' do
       expect(FactoryGirl.build(:comment, article_id: @factory_article.id, body: "")).not_to be_valid
+    end
+
+    it 'should reject comments not related to articles' do
+      expect(FactoryGirl.build(:comment, article_id: "")).not_to be_valid
     end
 
     it 'should take a really long body' do
