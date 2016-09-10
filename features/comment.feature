@@ -15,3 +15,11 @@ Scenario: Making a comment
   And click the "Comment" button
   Then I should be on the "Learn Rails 5" page
   And I should see "Here's a horrible internet comment."
+
+Scenario: Comment with my email address
+  Given I am on the "Learn Rails 5" page
+  When I fill in the textbox with "Another horrible internet troll"
+  And I fill in "Email" with "amber@amber.com"
+  And click the "Comment" button
+  Then I should be on the "Learn Rails 5" page
+  And I should see "amber@amber.com"
