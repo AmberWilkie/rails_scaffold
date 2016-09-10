@@ -3,15 +3,14 @@
 <hr width="600px">
 <div class='comment'>
 <%= form_for [@article, @article.comments.build] do |f| %>
+<%= label :email, 'Email (Optional)' %><br>
+<%= f.text_field :email %>
 <%= f.text_area :body, size: "60x12"%>
 <%= f.submit "Comment" %>
 <% end %>
 </div>
 <div class='display_comments'>
-  <%= @article.comments.each do |hash| %>
+  <% @article.comments.each do |hash| %>
     <p><%= hash.body unless hash == @article.comments.last %></p>
   <% end %><p>
-That frickin' weird text is *outside* the Ps! Where is it coming from!?
 </div>
-
-Here's some text outside the div.
