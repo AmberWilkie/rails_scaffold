@@ -21,5 +21,13 @@ RSpec.describe Comment, type: :model do
     it 'should have valid Factory' do
       expect(FactoryGirl.create(:comment, article_id: @factory_article.id)).to be_valid
     end
+
+    it 'should have a valid Factory with an email' do
+      expect(FactoryGirl.create(:comment, article_id: @factory_article.id, email: 'jenny@random.com')).to be_valid
+    end
+  end
+
+  describe 'Email validation' do
+    it 'should allow '
   end
 end
