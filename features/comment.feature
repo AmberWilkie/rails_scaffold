@@ -32,3 +32,11 @@ Scenario: Commenting with a junk email address
   Then I should see "You probably entered a crap email"
   And I should see "Super comment"
   And I should not see "amberamber.com says:"
+
+Scenario: I try to comment on an article that doesn't exist
+  Given I am on the "Learn Rails 5" page
+  And someone deletes the "Learn Rails 5" article while I'm viewing it
+  When I fill in the textbox with "Super comment of love and peace"
+  And I fill in "Email" with "amber@amber.com"
+  And click the "Comment" button
+  Then I should see "sorry, article not found"
