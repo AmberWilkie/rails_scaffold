@@ -1,20 +1,24 @@
 
-<h1><%= @article.title %></h1>
+<h2 class="upcase big"><%= @article.title %></h1>
 <p><%= @article.content %></p>
 <hr width="600px">
-<div class='comment'>
+<div class='form'>
 <%= form_for [@article, @comment], method: :post do |f| %>
-  <%= label :email, 'Email (Optional)' %><br>
+  <%= label :email, 'Email (Optional)' %>
   <%= f.text_field :email, value: @comment.email %><br>
-  <%= f.text_area :body, size: "60x12", value: @comment.body %>
-  <%= f.submit "Comment" %>
+  <%= f.text_area :body, size: "60x12", value: @comment.body %><p>
+  <%= f.submit "Comment", class: 'button' %>
 <% end %>
 </div>
 <div class='display_comments'>
   <% @article.comments.each do |comment| %>
+  <hr class="orangehr">
     <% if comment.email != nil %>
       <%= comment.email%> says:<br>
       <% end %>
-    <p><%= comment.body %></p>
+    <p><%= comment.body %>
+  </p>
+
+
   <% end %><p>
 </div>
